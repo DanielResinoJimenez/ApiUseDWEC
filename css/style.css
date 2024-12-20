@@ -1,0 +1,11 @@
+/* Style css */
+
+@font-face {
+    font-family: 'text';
+    src: url(./../assets/fonts/Anton/Anton-Regular.ttf);
+}
+
+*{
+    font-family: 'text';
+    
+}
