@@ -3,12 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
     <title>Football</title>
     <link rel="shortcut icon" href="./../assets/images/logo.png">
     <link rel="stylesheet" href="./../css/style.css">
 </head>
 <body>
-    
+    <!-- HEADER -->
+    <header class="bg-gray-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex items-center justify-between h-16">
+            <div class="flex items-center">
+              <img class="h-10 w-auto" src="./../assets/images/logo.png" alt="Football Logo">
+              <span class="ml-3 text-2xl font-bold">NFL Fan Zone</span>
+            </div>
+            
+            <!-- NAV -->
+            <nav class="hidden md:flex space-x-8">
+              <a href="#" class="hover:text-yellow-500 transition">Home</a>
+              <a href="#" class="hover:text-yellow-500 transition">Teams</a>
+              <a href="#" class="hover:text-yellow-500 transition">Schedule</a>
+              <a href="#" class="hover:text-yellow-500 transition">Tickets</a>
+            </nav>
+      
+            <div class="hidden md:block">
+              <a href="#" class="bg-yellow-500 text-gray-900 px-4 py-2 rounded-md font-medium hover:bg-yellow-400 transition">Buy Tickets</a>
+            </div>
+      
+            <div class="md:hidden flex items-center">
+              <button class="text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-yellow-500" id="navbutton">
+                <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      
+        <!-- RESPONSIVE SMALL MENU -->
+        <div class="hidden" id="smallmenu">
+          <nav class="px-2 pt-2 pb-4 space-y-1 bg-gray-800">
+            <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700">Home</a>
+            <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700">Teams</a>
+            <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700">Schedule</a>
+            <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700">Tickets</a>
+            <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-yellow-500 bg-gray-700 hover:bg-gray-600">Buy Tickets</a>
+          </nav>
+        </div>
+      </header>
+      <main class="bg-blue-700">
+
+        <!-- API SEARCH RESULTS -->
+        <div id="eventtable" class="flex gap-5">
+            <article>
+                <img src="" alt="">
+                <h2></h2>
+                <p></p>
+            </article>
+        </div>
+      </main>
 </body>
 <script src="./../js/script.js"></script>
 </html>
