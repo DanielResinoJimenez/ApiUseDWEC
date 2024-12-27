@@ -8,9 +8,9 @@
     <link rel="shortcut icon" href="./../assets/images/logo.png">
     <link rel="stylesheet" href="./../css/style.css">
 </head>
-<body>
+<body class="grid grid-rows-[auto,1fr,auto] grid-cols-1 lg:grid-cols-[250px,1fr] min-h-screen">
     <!-- HEADER -->
-    <header class="bg-gray-900 text-white">
+    <header class="row-span-1 lg:col-span-2 bg-gray-900 text-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="flex items-center justify-between h-16">
             <div class="flex items-center">
@@ -51,17 +51,30 @@
           </nav>
         </div>
       </header>
-      <main class="bg-blue-700">
 
+      <!-- ASIDE -->
+
+      <aside class="hidden lg:block bg-gray-200 p-4">
+        <h2 class="text-xl">Search</h2>
+        <div class="flex flex-col">
+          <label for="">Team Name</label>
+          <input type="text" placeholder="Name..." id="teamname">
+        </div>
+        <div class="flex flex-col">
+          <label for="">Event Location</label>
+          <select name="" id="locations"></select>
+        </div>
+      </aside>
+
+      <main class="bg-blue-700">
         <!-- API SEARCH RESULTS -->
-        <div id="eventtable" class="flex gap-5">
-            <article>
-                <img src="" alt="">
-                <h2></h2>
-                <p></p>
-            </article>
+        <div id="eventtable" class="flex gap-5 flex-wrap justify-center pt-10">
+            
         </div>
       </main>
+      <footer class="row-span-1 lg:col-span-2 bg-blue-500 text-white p-4">
+        <p class="text-center">&copy; 2024 Tu Página. Todos los derechos reservados.</p>
+      </footer>
 </body>
 <script src="./../js/script.js"></script>
 </html>
