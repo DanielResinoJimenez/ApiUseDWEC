@@ -63,11 +63,17 @@
         <div class="flex flex-col">
           <label for="">Event Location</label>
           <select name="" id="locations"></select>
+          <input type="text" placeholder="Another Locations..." id="another" class="p-1 mt-2">
+          <button class="bg-blue-500 border border-blue-950 mt-2" id="search">Search...</button>
         </div>
+        
       </aside>
 
-      <main class="bg-blue-700">
+      <main class="bg-blue-700 pb-10">
         <!-- API SEARCH RESULTS -->
+        <div id="noResults" class="flex items-center justify-center hidden mt-16">
+          <p class="text-blue-950 text-[50px] text-center">No events at that location</p>
+        </div>
         <div id="eventtable" class="flex gap-5 flex-wrap justify-center pt-10">
             
         </div>
