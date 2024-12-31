@@ -1,86 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <title>Football</title>
-    <link rel="shortcut icon" href="./../assets/images/logo.png">
-    <link rel="stylesheet" href="./../css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Football</title>
+  <link rel="shortcut icon" href="./../assets/images/logo.png">
+  <link rel="stylesheet" href="./../css/style.css">
 </head>
+
 <body class="grid grid-rows-[auto,1fr,auto] grid-cols-1 lg:grid-cols-[250px,1fr] min-h-screen">
-    <!-- HEADER -->
-    <header class="row-span-1 lg:col-span-2 bg-gray-900 text-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="flex items-center justify-between h-16">
-            <div class="flex items-center">
-              <img class="h-10 w-auto" src="./../assets/images/logo.png" alt="Football Logo">
-              <span class="ml-3 text-2xl font-bold">NFL Fan Zone</span>
-            </div>
-            
-            <!-- NAV -->
-            <nav class="hidden md:flex space-x-8">
-              <a href="#" class="hover:text-yellow-500 transition">Home</a>
-              <a href="#" class="hover:text-yellow-500 transition">Teams</a>
-              <a href="#" class="hover:text-yellow-500 transition">Schedule</a>
-              <a href="#" class="hover:text-yellow-500 transition">Tickets</a>
-            </nav>
-      
-            <div class="hidden md:block">
-              <a href="#" class="bg-yellow-500 text-gray-900 px-4 py-2 rounded-md font-medium hover:bg-yellow-400 transition">Buy Tickets</a>
-            </div>
-      
-            <div class="md:hidden flex items-center">
-              <button class="text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-yellow-500" id="navbutton">
-                <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
-                </svg>
-              </button>
-            </div>
-          </div>
+  <!-- HEADER -->
+  <header class="row-span-1 lg:col-span-2 bg-gray-900 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center">
+          <img class="h-10 w-auto" src="./../assets/images/logo.png" alt="Football Logo">
+          <span class="ml-3 text-2xl font-bold">NFL Fan Zone</span>
         </div>
-      
-        <!-- RESPONSIVE SMALL MENU -->
-        <div class="hidden" id="smallmenu">
-          <nav class="px-2 pt-2 pb-4 space-y-1 bg-gray-800">
-            <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700">Home</a>
-            <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700">Teams</a>
-            <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700">Schedule</a>
-            <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700">Tickets</a>
-            <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-yellow-500 bg-gray-700 hover:bg-gray-600">Buy Tickets</a>
-          </nav>
-        </div>
-      </header>
 
-      <!-- ASIDE -->
+        <!-- NAV -->
+        <nav class="hidden md:flex space-x-8">
+          <a href="#" class="hover:text-yellow-500 transition">Home</a>
+          <a href="#" class="hover:text-yellow-500 transition">Teams</a>
+          <a href="#" class="hover:text-yellow-500 transition">Schedule</a>
+          <a href="#" class="hover:text-yellow-500 transition">Tickets</a>
+        </nav>
 
-      <aside class="hidden lg:block bg-gray-200 p-4">
-        <h2 class="text-xl">Search</h2>
-        <div class="flex flex-col">
-          <label for="">Team Name</label>
-          <input type="text" placeholder="Name..." id="teamname">
+        <div class="hidden md:block">
+          <a href="#"
+            class="bg-yellow-500 text-gray-900 px-4 py-2 rounded-md font-medium hover:bg-yellow-400 transition">Buy
+            Tickets</a>
         </div>
-        <div class="flex flex-col">
-          <label for="">Event Location</label>
-          <select name="" id="locations"></select>
-          <input type="text" placeholder="Another Locations..." id="another" class="p-1 mt-2">
-          <button class="bg-blue-500 border border-blue-950 mt-2" id="search">Search...</button>
-        </div>
-        
-      </aside>
 
-      <main class="bg-blue-700 pb-10">
-        <!-- API SEARCH RESULTS -->
-        <div id="noResults" class="flex items-center justify-center hidden mt-16">
-          <p class="text-blue-950 text-[50px] text-center">No events at that location</p>
+        <div class="md:hidden flex items-center">
+          <button
+            class="text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-yellow-500"
+            id="navbutton">
+            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+            </svg>
+          </button>
         </div>
-        <div id="eventtable" class="flex gap-5 flex-wrap justify-center pt-10">
-            
-        </div>
-      </main>
-      <footer class="row-span-1 lg:col-span-2 bg-blue-500 text-white p-4">
-        <p class="text-center">&copy; 2024 Tu Página. Todos los derechos reservados.</p>
-      </footer>
+      </div>
+    </div>
+
+    <!-- RESPONSIVE SMALL MENU -->
+    <div class="hidden" id="smallmenu">
+      <nav class="px-2 pt-2 pb-4 space-y-1 bg-gray-800">
+        <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700">Home</a>
+        <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700">Teams</a>
+        <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700">Schedule</a>
+        <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700">Tickets</a>
+        <a href="#"
+          class="block px-3 py-2 rounded-md text-base font-medium text-yellow-500 bg-gray-700 hover:bg-gray-600">Buy
+          Tickets</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ASIDE -->
+
+  <aside class="hidden lg:block bg-gray-200 p-4">
+    <h2 class="text-xl">Search</h2>
+    <div class="flex flex-col">
+      <label for="">Event Location</label>
+      <select name="" id="locations"></select>
+      <input type="text" placeholder="Another Locations..." id="another" class="p-1 mt-2">
+      <button class="bg-blue-500 border border-blue-950 mt-2" id="search">Search...</button>
+    </div>
+
+  </aside>
+
+  <!-- MAIN -->
+
+  <main class="bg-blue-700 pb-10">
+    <!-- API SEARCH RESULTS -->
+    <div id="noResults" class="flex items-center justify-center hidden mt-16">
+      <p class="text-blue-950 text-[50px] text-center">No events at that location</p>
+    </div>
+    <div id="eventtable" class="flex gap-5 flex-wrap justify-center pt-10">
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+
+  <footer class="row-span-1 lg:col-span-2 bg-blue-500 text-white p-4 border-t-[3px] border-blue-950">
+    <div class="flex gap-5 text-center justify-around border-b border-blue-950 pb-5 mb-3">
+      <div>
+        <h4 class="text-lg font-bold mb-4">Information</h4>
+        <ul class="space-y-2">
+          <li><a href="#about" class="hover:text-gray-400">About Us</a></li>
+          <li><a href="#schedule" class="hover:text-gray-400">Schedule</a></li>
+          <li><a href="#teams" class="hover:text-gray-400">Teams</a></li>
+          <li><a href="#rules" class="hover:text-gray-400">Rules</a></li>
+        </ul>
+      </div>
+
+      <!-- List 2: Events -->
+      <div>
+        <h4 class="text-lg font-bold mb-4">Events</h4>
+        <ul class="space-y-2">
+          <li><a href="#superbowl" class="hover:text-gray-400">Super Bowl</a></li>
+          <li><a href="#playoffs" class="hover:text-gray-400">Playoffs</a></li>
+          <li><a href="#pro-bowl" class="hover:text-gray-400">Pro Bowl</a></li>
+          <li><a href="#draft" class="hover:text-gray-400">Draft</a></li>
+        </ul>
+      </div>
+
+      <!-- List 3: Resources -->
+      <div>
+        <h4 class="text-lg font-bold mb-4">Resources</h4>
+        <ul class="space-y-2">
+          <li><a href="#news" class="hover:text-gray-400">News</a></li>
+          <li><a href="#highlights" class="hover:text-gray-400">Highlights</a></li>
+          <li><a href="#stats" class="hover:text-gray-400">Statistics</a></li>
+          <li><a href="#videos" class="hover:text-gray-400">Videos</a></li>
+        </ul>
+      </div>
+
+      <!-- List 4: Contact -->
+      <div>
+        <h4 class="text-lg font-bold mb-4">Contact</h4>
+        <ul class="space-y-2">
+          <li><a href="#support" class="hover:text-gray-400">Support</a></li>
+          <li><a href="#feedback" class="hover:text-gray-400">Feedback</a></li>
+          <li><a href="#social-media" class="hover:text-gray-400">Social Media</a></li>
+          <li><a href="#subscribe" class="hover:text-gray-400">Subscribe</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="text-center text-sm"> 2024 NFL Fan Zone. 
+      All rights reserved.</p>
+  </footer>
 </body>
 <script src="./../js/script.js"></script>
+
 </html>

@@ -13,11 +13,13 @@
 
     <!-- Login Form Container -->
     <div class="flex flex-col m-auto border-[3px] border-blue-950 p-10 bg-gray-500 rounded-md shadow-2xl" id="login">
-        <form action="" class="flex flex-col gap-5">
+        <h2 class="text-center text-xl text-blue-50 hidden" id="correctRegis">Correct Register Of User</h2>
+        <form id="loginForm" class="flex flex-col gap-5" novalidate>
+            <span class="text-red-500 text-xs hidden text-center" id="errorLogin">Username and password do not match</span>
             <label for="" class="text-xl text-blue-950">Nickname:</label>
-            <input type="text" value="" class="h-10 w-96 p-3 text-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Nickname...">
+            <input type="text" value="" required id="loginUser" class="h-10 w-96 p-3 text-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Nickname...">
             <label for="" class="text-xl text-blue-950">Password:</label>
-            <input type="password" value="" class="h-10 w-96 p-3 text-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Password...">
+            <input type="password" value="" required id="loginPass" class="h-10 w-96 p-3 text-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Password...">
             <input type="submit" value="Login" class="w-full bg-blue-950 h-10 text-blue-200 hover:outline-none hover:ring-2 hover:ring-blue-500">
         </form>
         <div class="mt-10">
@@ -27,17 +29,25 @@
 
     <!-- Register Form Container -->
     <div class="hidden flex-col m-auto border-[3px] border-blue-950 p-10 bg-gray-500 rounded-md" id="register">
-        <form action="" class="flex flex-col gap-5">
+        <form id="formRegister" class="flex flex-col gap-5" novalidate>
             <label for="" class="text-xl text-blue-950">Nickname:</label>
-            <input type="text" value="" class="h-10 w-96 p-3 text-blue-800" placeholder="Nickname...">
+            <div class="flex flex-col">
+                <span class="text-red-500 text-xs hidden" id="userError">The username's pattern is not the correct one</span>
+                <input type="text" id="nickRegis" pattern="^[A-Za-z0-9]{6,14}$" max="14" min="6" required value="" class="h-10 w-96 p-3 text-blue-800" placeholder="Nickname...">
+                <span class="text-sm mt-2">Between 6 and 14 characters</span>
+            </div>
             <label for="" class="text-xl text-blue-950">Password:</label>
-            <input type="password" value="" class="h-10 w-96 p-3 text-blue-800" placeholder="Password...">
+            <div class="flex flex-col">
+                <span class="text-red-500 text-xs hidden" id="passError">The password's pattern is not the correct one</span>
+                <input type="password" id="passRegis" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[\W_]).+$" required value="" class="h-10 w-96 p-3 text-blue-800" placeholder="Password...">
+                <span class="text-sm mt-2 ">Min. one number and one special character</span>
+            </div>
             <label for="" class="text-xl text-blue-950">Repeat password:</label>
-            <input type="password" value="" class="h-10 w-96 p-3 text-blue-800" placeholder="Repeat password...">
-            <input type="submit" value="Login" class="w-full bg-blue-950 h-10">
+            <input type="password" id="pass2Regis" value="" class="h-10 w-96 p-3 text-blue-800" placeholder="Repeat password...">
+            <button type="submit" id="regisUser" value="Register" class="w-full bg-blue-950 text-blue-200 h-10 hover:outline-none hover:ring-2 hover:ring-blue-500">Submit</button>
         </form>
         <div class="mt-10">
-            <p class="text-center"><span class="text-blue-800 cursor-pointer" id="loginbtn">I have account</span></p>
+            <p class="text-center"><span class="text-blue-800 cursor-pointer hover:underline" id="loginbtn">I have account</span></p>
         </div>
     </div>
 
