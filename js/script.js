@@ -1,5 +1,7 @@
 /* Script JS Api Use */
 
+import { EventNFL } from "./events.js";
+
 // First Api Search
 
 let apiKey = "yVhAb1oXDUGASbyAMclGTte4wQosdlTc";
@@ -15,62 +17,14 @@ const arrayEvent = [];
 
 const loadApiFootball = async () => {
     const football = await apiRequest();
-    console.log(football);
-
     let arrayEvents = football._embedded.events;
     arrayEvents.forEach(event => {
 
-        let newarticle = document.createElement("article");
-        newarticle.classList.add("p-6")
-        newarticle.classList.add("rounded-sm")
-        newarticle.classList.add("bg-blue-300")
-        newarticle.classList.add("w-56")
-        newarticle.classList.add("flex");
-        newarticle.classList.add("flex-col")
-        newarticle.classList.add("justify-between")
-
-        let newimg = document.createElement("img");
-        newimg.src = event.images[1].url;
-        newimg.classList.add("object-cover")
-        newimg.classList.add("rounded-md")
-
-        let newtitle = document.createElement("h2");
-        newtitle.textContent = event.name;
-
-        let newA = document.createElement("a");
-        newA.href = event.url;
-        newA.classList.add("mt-2");
-        newA.classList.add("py-3");
-        newA.classList.add("bg-blue-500");
-        newA.classList.add("border");
-        newA.classList.add("border-blue-950");
-        newA.classList.add("text-center");
-        newA.classList.add("hover:text-blue-50");
-        newA.classList.add("hover:bg-blue-950");
-        newA.textContent = "Go For It"
-
-        newarticle.appendChild(newimg);
-        newarticle.appendChild(newtitle);
-        newarticle.appendChild(newA);
-        eventtable.appendChild(newarticle);
-
-        let newSpan = document.createElement("SPAN");
-        if (event.dates.timezone.includes("_")) {
-            newSpan.textContent = event.dates.timezone.replace("_", " ");
-            newSpan.classList.add("hidden")
-            newarticle.appendChild(newSpan);
-        } else {
-            
-            newSpan.textContent = event.dates.timezone;
-            newSpan.classList.add("hidden")
-            newarticle.appendChild(newSpan);
-        }
-
-
-        arrayEvent.push(newarticle);
+        let newEvent = new EventNFL(event.images[1].url, event.name, event.url, event.dates.timezone)
 
     });
 
+    EventNFL.showEvents();
 }
 
 // Second Api Search
@@ -126,17 +80,11 @@ navbutton.addEventListener("click", () => {
     }
 })
 
-// Filter Events By Team Event
-
-const filterEventTeam = () => {
-
-}
-
 // Filter Events By Location Event
 
 const filterEventLocation = (event) => {
     if(event.target.tagName === "SELECT"){
-        const arrayFilter = arrayEvent.filter(element => element.lastElementChild.textContent.toLowerCase().includes(event.target.options[event.target.selectedIndex].textContent.toLowerCase()))
+        const arrayFilter = EventNFL.articles.filter(element => element.lastElementChild.textContent.toLowerCase().includes(event.target.options[event.target.selectedIndex].textContent.toLowerCase()))
         if(arrayFilter.length == 0){
             noResults.classList.remove("hidden");
             eventtable.textContent = "";
@@ -149,7 +97,7 @@ const filterEventLocation = (event) => {
         }
     }else{
         if(another.value != ""){
-            const arrayFilter = arrayEvent.filter(element => element.lastElementChild.textContent.toLowerCase().includes(another.value.toLowerCase()))
+            const arrayFilter = EventNFL.articles.filter(element => element.lastElementChild.textContent.toLowerCase().includes(another.value.toLowerCase()))
             if(arrayFilter.length == 0){
                 noResults.classList.remove("hidden");
                 eventtable.textContent = "";
